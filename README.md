@@ -1,7 +1,7 @@
 # WH-R-Banner
 A "simple and minimalist" Fitbit watchface.
 
-![WH-R Default.PNG](WH-R Default.PNG)
+![/images/WH-R Default.PNG](/images/WH-R Default.PNG)
 
 Still learning how to do these things, and need to get way better at HTML+CSS designing.
 
