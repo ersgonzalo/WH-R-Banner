@@ -1,0 +1,29 @@
+<svg class="background">
+  <!--g transform="rotate(5)"-->
+  <!--
+  To calculate the ratio of bar to text, use 
+  textX = rectX+10, textY=rectY+6, 
+  for rect1 to rect2, use x+20, y+10
+  -->
+  <rect class="whiteBar" x="10" y="5%"/>
+  <text id="mainHeartRate" class="smallerStats" x="20" y="11%"/>
+  <image href="icons/heartrate.png" class="smallerIconStats" x="195" y="6%"/>
+  
+  <rect class="whiteBar" x="35" y="17%"/>
+  <text id="mainStepsTaken" class="smallerStats" x="45" y="23%"/>
+  <image href="icons/steps.png" class="smallerIconStats" x="220" y="18%"/>
+  
+  <rect class="whiteBar" x="60" y="29%"/>
+  <text id="mainCaloriesBurned" class="smallerStats" x="70" y="35%"/>
+  <image href="icons/calories.png" class="smallerIconStats" x="245" y="30%"/>
+  
+  <rect class="whiteBar" x="85" y="41%"/>
+  <text id="mainElevationClimbed" class="smallerStats" x="95" y="47%"/>
+  <image href="icons/floors.png" class="smallerIconStats" x="270" y="42%"/>
+  <!--/g-->
+  
+  <rect id="dateDivider" class="whiteBar"/>
+  
+  <text id="mainDateTimeDay" class="mainText" />
+  <text id="mainClockTime" class="mainText" />
+</svg>

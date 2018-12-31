@@ -1,0 +1,72 @@
+.background {
+  viewport-fill: black;
+}
+
+#mainClockTime {
+  font-size: 95;
+  font-family: System-Light;
+  text-length: 10;
+  text-anchor: middle;
+  x: 50%;
+  y: 95%;
+}
+
+#mainDateTimeDay{
+  font-size: 32;
+  font-family: System-Light;
+  text-length: 30;
+  text-anchor: middle;
+  x: 50%;
+  y: 70%;
+}
+
+.mainText{
+  fill: white;
+}
+
+#dateDivider {
+  height: 2;
+  width: 80%;
+  x:30;
+  y:55%;
+}
+
+/* General Formatting for Top Sections */
+
+.smallerStats{
+  font-size: 18;
+  font-family: System-Regular;
+  text-length: 32;
+  fill: darkred;
+  y: 20%;
+}
+
+.smallerIconStats{
+  height: 18;
+  width: 18;
+  fill: darkred;
+}
+
+.whiteBar {
+  fill: white;
+  width: 70%;
+  height: 25;
+}
+
+/* Specific Formatting for our sections */
+
+#mainHeartRate {
+ 
+}
+
+#mainStepsTaken {
+
+}
+
+#mainCaloriesBurned {
+
+}
+
+#mainElevationClimbed { 
+
+}

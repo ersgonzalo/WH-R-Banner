@@ -1,0 +1,24 @@
+{
+  "fitbit": {
+    "appUUID": "54750558-52f6-49c5-9d0d-8f1ffa509a6d",
+    "appType": "clockface",
+    "appDisplayName": "WH-R Banner",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_activity",
+      "access_heart_rate"
+    ],
+    "buildTargets": [
+      "meson"
+    ],
+    "i18n": {
+      "en": {
+        "name": "WH-R Banner"
+      }
+    }
+  },
+  "devDependencies": {
+    "@fitbit/sdk": "~3.0.0"
+  }
+}
