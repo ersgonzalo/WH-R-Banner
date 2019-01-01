@@ -16,6 +16,7 @@ const mainHeartRate = document.getElementById("mainHeartRate");
 const mainStepsTaken = document.getElementById("mainStepsTaken");
 const mainCaloriesBurned = document.getElementById("mainCaloriesBurned");
 const mainElevationClimbed = document.getElementById("mainElevationClimbed");
+const mainActiveTime = document.getElementById("mainActiveTime");
 
 // For the Heartrate Monitor
 let hrm = new HeartRateSensor();
@@ -40,7 +41,8 @@ clock.ontick = (evt) => {
   mainDateTimeDay.text = `${dayOfWeek}, ${monthName} ${todayDate}`;
   mainStepsTaken.text = `${today.local.steps} steps`;
   mainCaloriesBurned.text = `${today.local.calories} calories`;
-  mainElevationClimbed.text = `${today.local.elevationGain} stairs climbed`;
+  mainElevationClimbed.text = `${today.local.elevationGain} floors`;
+  mainActiveTime.text = `${today.local.activeMinutes} mins active`;
 }
 hrm.onreading = function () {
     mainHeartRate.text = `${hrm.heartRate} bpm`;  

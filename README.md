@@ -6,5 +6,7 @@ A "simple and minimalist" Fitbit watchface.
 Still learning how to do these things, and need to get way better at HTML+CSS designing.
 
 ToDos:
-- Add in animation
+- Add in animation when clicking item
 - Make the text larger more proportionately 
+- Add in Goal % compared to white bar length
+- Make refresh less taxing on application
