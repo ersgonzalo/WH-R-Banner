@@ -1,3 +1,5 @@
+import { preferences } from "user-settings";
+
 // Add zero in front of numbers < 10
 export function zeroPad(i) {
   if (i < 10) {
@@ -39,4 +41,15 @@ export function convertDayOfWeekFromNumber(numberedDay) {
   ];
 
   return daysOfTheWeek[numberedDay];
+}
+
+export function formatHoursDisplay(hours){
+  //Put this in utils for Time Display
+  if (preferences.clockDisplay === "12h") {
+    // 12h format
+    return hours % 12 || 12;
+  } else {
+    // 24h format
+    return zeroPad(hours);
+  }
 }

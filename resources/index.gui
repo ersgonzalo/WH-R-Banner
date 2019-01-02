@@ -5,26 +5,31 @@
   textX = rectX+10, textY=rectY+6, 
   for rect1 to rect2, use x+20, y+10
   -->
-  <rect class="whiteBar" x="0" y="3%"/>
-  <text id="mainHeartRate" class="smallerStats" x="9" y="10%"/>
-  <image href="icons/heartrate.png" class="smallerIconStats" x="185" y="4%"/>
+  <g id="heartRateGroup">
+    <rect class="whiteBar" x="0" y="3%"/>
+    <text id="mainHeartRate" class="smallerStats" x="9" y="10%"/>
+    <image href="icons/heartrate.png" class="smallerIconStats" x="180" y="4%"/>
+  </g>
   
   <rect class="whiteBar" x="22" y="15%"/>
   <text id="mainStepsTaken" class="smallerStats" x="31" y="22%"/>
-  <image href="icons/steps.png" class="smallerIconStats" x="207" y="16%"/>
+  <image href="icons/steps.png" class="smallerIconStats" x="202" y="16%"/>
   
   <rect class="whiteBar" x="47" y="27%"/>
   <text id="mainCaloriesBurned" class="smallerStats" x="56" y="34%"/>
-  <image href="icons/calories.png" class="smallerIconStats" x="232" y="28%"/>
+  <image href="icons/calories.png" class="smallerIconStats" x="226" y="28%"/>
   
   <rect class="whiteBar" x="72" y="39%"/>
   <text id="mainElevationClimbed" class="smallerStats" x="81" y="46%"/>
-  <image href="icons/floors.png" class="smallerIconStats" x="257" y="40%"/>
+  <image href="icons/floors.png" class="smallerIconStats" x="252" y="40%"/>
   
   <rect class="whiteBar" x="92" y="51%"/>
   <text id="mainActiveTime" class="smallerStats" x="101" y="58%"/>
-  <image href="icons/active.png" class="smallerIconStats" x="282" y="52%"/>
+  <image href="icons/active.png" class="smallerIconStats" x="277" y="52%"/>
   <!--/g-->
+  
+  <text id="batteryDisplay" x="14" y="57%" class="mainText"/>
+  <image id="batteryIcon" x="9" y="50%" class="smallerIconStats"/>
   
   <rect id="dateDivider" class="whiteBar"/>
   
