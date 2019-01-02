@@ -5,6 +5,8 @@ A "simple and minimalist" Fitbit watchface with colors of Black, White, and Dark
 
 Still learning how to do these things, and need to get way better at HTML+CSS designing and Fitbit's Device APIs setup.
 
+If you'd like to install the watchface for yourself, you can use the [gallery link here](https://gam.fitbit.com/gallery/clock/54750558-52f6-49c5-9d0d-8f1ffa509a6d)!
+
 ####ToDos For Later:
 - Add in animation when clicking watch face
 - Add in animation when top bpm bar moves
