@@ -1,4 +1,8 @@
 import { battery } from "power";
+import * as appConstants from "../common/constants";
+
+const appSettings = appConstants.globalAppSettings;
+const batteryLowPercent = 20;
 
 export function calculateBatteryPercentage(){
   let batteryValues = {
@@ -9,18 +13,18 @@ export function calculateBatteryPercentage(){
   const level = battery.chargeLevel;
   
   if(level == 100){
-    batteryValues.color = `fb-green`;
+    batteryValues.color = appSettings.subTextColor;
     batteryValues.display = `inline`;
-  } else if(level < 25){
-    batteryValues.color = `white`;
+  } else if(level < batteryLowPercent){
+    batteryValues.color = appSettings.mainTextColor;
     batteryValues.display = `inline`;
   } else {
-    batteryValues.color = `black`;
+    batteryValues.color = appSettings.backgroundColor;
     batteryValues.display = `none`;
   }
   
   return batteryValues;
-}
+};
 
 export function determineBatteryIcon(){
   const imageFolderPath = `icons/`;
@@ -29,7 +33,7 @@ export function determineBatteryIcon(){
   const currentBatteryLevel = battery.chargeLevel;
   
   switch(true){
-    case currentBatteryLevel < 25:
+    case currentBatteryLevel < batteryLowPercent:
       batteryIconType = `battery-0`;
       break;
     case currentBatteryLevel < 40:
@@ -38,17 +42,17 @@ export function determineBatteryIcon(){
     case currentBatteryLevel < 60:
       batteryIconType = `battery-2`;
       break;
-    case currentBatteryLevel < 100:
+    case currentBatteryLevel < 90:
       batteryIconType = `battery-3`;
       break;
-    case currentBatteryLevel == 100:
+    case currentBatteryLevel <= 100:
       batteryIconType = `battery-4`;
       break;
-  }
+  };
   
   return imageFolderPath + batteryIconType + imageFileType;
 }
 
 export function moveBPMDisplayArea(){
   
-}
+};

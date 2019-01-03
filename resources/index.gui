@@ -1,14 +1,16 @@
 <svg class="background">
-  <!--g transform="rotate(5)"-->
   <!--
-  To calculate the ratio of bar to text, use 
-  textX = rectX+10, textY=rectY+6, 
-  for rect1 to rect2, use x+20, y+10
+  To calculate the ratio of bar to text after the first bar, use 
+  textX = rectX+9, textY=rectY+7
+  imageX = textX+171, textY-6
+  for Rect1 to Rect2, use x+25, y+12
   -->
   <g id="heartRateGroup">
     <rect class="whiteBar" x="0" y="3%"/>
     <text id="mainHeartRate" class="smallerStats" x="9" y="10%"/>
     <image href="icons/heartrate.png" class="smallerIconStats" x="180" y="4%"/>
+    <animateTransform attributeType="translate" from="0" to="47" begin="enable" dur="0.725" />
+    <animateTransform attributeType="translate" from="47" to="0" begin="disable" dur="0.725" />
   </g>
   
   <rect class="whiteBar" x="22" y="15%"/>
@@ -26,7 +28,6 @@
   <rect class="whiteBar" x="92" y="51%"/>
   <text id="mainActiveTime" class="smallerStats" x="101" y="58%"/>
   <image href="icons/active.png" class="smallerIconStats" x="277" y="52%"/>
-  <!--/g-->
   
   <text id="batteryDisplay" x="14" y="57%" class="mainText"/>
   <image id="batteryIcon" x="9" y="50%" class="smallerIconStats"/>
