@@ -1,7 +1,7 @@
 # WH-R-Banner
 A "simple and minimalist" Fitbit watchface with colors of Black, White, and Dark Red. In my personal taste, I've seen too many watch faces that come off as strong or too tacky, so I decided to make one for myself.
 
-![WH-R Default.PNG](https://github.com/ersgonzalo/WH-R-Banner/blob/master/images/WH-R%20Default.PNG)
+![WH-R Default.PNG](https://github.com/ersgonzalo/WH-R-Banner/blob/master/images/WH-R%20Default.PNG)![WH-R Low Battery](https://github.com/ersgonzalo/WH-R-Banner/blob/master/images/WH-R%20Low%20Battery.PNG)
 
 Still learning how to do these things, and need to get way better at HTML+CSS designing and Fitbit's Device APIs setup.
 
