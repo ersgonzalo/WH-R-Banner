@@ -1,7 +1,7 @@
 # WH-R-Banner
 A "simple and minimalist" Fitbit watchface with colors of Black, White, and Dark Red. In my personal taste, I've seen too many watch faces that come off as strong or too tacky, so I decided to make one for myself.
 
-![WH-R Default.PNG](https://github.com/ersgonzalo/WH-R-Banner/blob/master/images/WH-R%20Default.PNG)![WH-R Low Battery](https://raw.githubusercontent.com/ersgonzalo/WH-R-Banner/master/images/WH-R%20Low%20Battery.png)
+![WH-R Default.PNG](https://github.com/ersgonzalo/WH-R-Banner/blob/master/images/WH-R%20Default.PNG)      ![WH-R Low Battery](https://raw.githubusercontent.com/ersgonzalo/WH-R-Banner/master/images/WH-R%20Low%20Battery.png)
 
 Still learning how to do these things, and need to get way better at HTML+CSS designing and Fitbit's Device APIs setup.
 
@@ -31,6 +31,7 @@ If you'd like to install the watchface for yourself, you can use the [gallery li
 - More code modularity for various sections
 - Display better on Ionic Devices
 - Handle any undefined errors if networking stuff goes down like on 7/2/19
+- Hide Battery display if device is charging state and do not trigger animation
 - ~~Add in animation when top bpm bar moves~~
 - ~~Make the text larger more areas proportionately~~
 
