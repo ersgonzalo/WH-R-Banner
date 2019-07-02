@@ -30,6 +30,7 @@ If you'd like to install the watchface for yourself, you can use the [gallery li
 - Make refresh less taxing on application
 - More code modularity for various sections
 - Display better on Ionic Devices
+- Handle any undefined errors if networking stuff goes down like on 7/2/19
 - ~~Add in animation when top bpm bar moves~~
 - ~~Make the text larger more areas proportionately~~
 
