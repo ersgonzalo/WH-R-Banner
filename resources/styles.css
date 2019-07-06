@@ -4,20 +4,20 @@
 
 #mainClockTime {
   font-size: 110;
-  font-family: System-Light;
+  font-family: Colfax-Light;
   text-length: 10;
   text-anchor: middle;
   x: 50%;
-  y: 100%;
+  y: 99%;
 }
 
 #mainDateTimeDay{
-  font-size: 33;
+  font-size: 36;
   font-family: System-Light;
   text-length: 30;
   text-anchor: middle;
   x: 50%;
-  y: 75%;
+  y: 73%;
 }
 
 .mainText{
@@ -26,8 +26,8 @@
 
 #dateDivider {
   height: 2;
-  width: 80%;
-  x:30;
+  width: 85%;
+  x:25;
   y:63%;
 }
 
@@ -48,6 +48,11 @@
 
 .whiteBar {
   fill: white;
+  width: 70%;
+  height: 27;
+}
+.redOutline {
+  fill: darkred;
   width: 70%;
   height: 27;
 }
@@ -72,7 +77,7 @@
   height: 37;
   width: 37;
 }
-#batteryDisplay{
+#batteryDisplayText{
   font-size: 10;
   font-family: System-Bold;
   text-length: 5;

@@ -4,8 +4,11 @@
   textX = rectX+9, textY=rectY+7
   imageX = textX+171, textY-6
   for Rect1 to Rect2, use x+25, y+12
+
+  0, 22, 47, 72, 92
   -->
   <g id="heartRateGroup">
+    <rect class="redOutline" x="3" y="2%"/>
     <rect class="whiteBar" x="0" y="3%"/>
     <text id="mainHeartRate" class="smallerStats" x="9" y="10%"/>
     <image href="icons/heartrate.png" class="smallerIconStats" x="180" y="4%"/>
@@ -13,23 +16,27 @@
     <animateTransform attributeType="translate" from="47" to="0" begin="disable" dur="0.725" />
   </g>
   
+  <rect class="redOutline" x="25" y="14%"/>
   <rect class="whiteBar" x="22" y="15%"/>
   <text id="mainStepsTaken" class="smallerStats" x="31" y="22%"/>
   <image href="icons/steps.png" class="smallerIconStats" x="202" y="16%"/>
   
+  <rect class="redOutline" x="50" y="26%"/>
   <rect class="whiteBar" x="47" y="27%"/>
   <text id="mainCaloriesBurned" class="smallerStats" x="56" y="34%"/>
   <image href="icons/calories.png" class="smallerIconStats" x="226" y="28%"/>
   
+  <rect class="redOutline" x="75" y="38%"/>
   <rect class="whiteBar" x="72" y="39%"/>
   <text id="mainElevationClimbed" class="smallerStats" x="81" y="46%"/>
   <image href="icons/floors.png" class="smallerIconStats" x="252" y="40%"/>
   
+  <rect class="redOutline" x="95" y="50%"/>
   <rect class="whiteBar" x="92" y="51%"/>
   <text id="mainActiveTime" class="smallerStats" x="101" y="58%"/>
   <image href="icons/active.png" class="smallerIconStats" x="277" y="52%"/>
   
-  <text id="batteryDisplay" x="14" y="57%" class="mainText"/>
+  <text id="batteryDisplayText" x="14" y="57%" class="mainText"/>
   <image id="batteryIcon" x="9" y="50%" class="smallerIconStats"/>
   
   <rect id="dateDivider" class="whiteBar"/>

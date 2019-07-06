@@ -53,3 +53,18 @@ export function formatHoursDisplay(hours){
     return zeroPad(hours);
   }
 }
+
+export function checkIfDigit(expectedNumber){
+  if(typeof(expectedNumber) !== 'number')
+    return `--`;
+  else
+    return expectedNumber;
+}
+
+export function testLogging(totalItemsObject){
+  console.log(`---`);
+  console.log(totalItemsObject.steps);
+  console.log(totalItemsObject.calories);
+  console.log(totalItemsObject.elevationGain);
+  console.log(totalItemsObject.activeMinutes);
+}

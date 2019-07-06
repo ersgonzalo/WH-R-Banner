@@ -8,6 +8,16 @@ Still learning how to do these things, and need to get way better at HTML+CSS de
 If you'd like to install the watchface for yourself, you can use the [gallery link here](https://gam.fitbit.com/gallery/clock/54750558-52f6-49c5-9d0d-8f1ffa509a6d)!
 
 ### Version Changelog  
+#### 1.7.1 - 7/6/19  
+- Forgot to use colons on an object in battery.js file...
+
+#### 1.7 - 7/5/19  
+- Handle User Stats if they display as undefined
+- Add in recognition for when device is off of a user's wrist when charging
+- not-really-refactoring, I'm bad at logic sometimes...
+- Red Shadow Outline for better color distinguishing
+- Changed Clock Font out of Taste
+
 #### 1.6 - 1/2/19  
 - Adjust battery icon tolerances for less stressful charge induction
 - Add in recognition for when device is off of a user's wrist
@@ -30,8 +40,8 @@ If you'd like to install the watchface for yourself, you can use the [gallery li
 - Make refresh less taxing on application
 - More code modularity for various sections
 - Display better on Ionic Devices
-- Handle any undefined errors if networking stuff goes down like on 7/2/19
-- Hide Battery display if device is charging state and do not trigger animation
+- ~Handle any undefined errors if networking stuff goes down like on 7/2/19~
+- ~Hide Battery display if device is charging state and do not trigger animation~
 - ~~Add in animation when top bpm bar moves~~
 - ~~Make the text larger more areas proportionately~~
 

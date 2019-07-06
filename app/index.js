@@ -19,11 +19,11 @@ const mainStepsTaken = document.getElementById("mainStepsTaken");
 const mainCaloriesBurned = document.getElementById("mainCaloriesBurned");
 const mainElevationClimbed = document.getElementById("mainElevationClimbed");
 const mainActiveTime = document.getElementById("mainActiveTime");
-const batteryDisplay = document.getElementById("batteryDisplay");
+const batteryDisplayText = document.getElementById("batteryDisplayText");
 const batteryIcon = document.getElementById("batteryIcon");
 
 // Set the z-Index for the Battery section
-batteryDisplay.layer = 2;
+batteryDisplayText.layer = 2;
 batteryIcon.layer = 1;
 
 // Update the Clockface Elements every tick based on the current time
@@ -39,10 +39,11 @@ clock.ontick = (evt) => {
   //Format the Display in our Text Areas
   mainClockTime.text = `${hours}:${mins}`;
   mainDateTimeDay.text = `${dayOfWeek}, ${monthName} ${todayDate}`;
-  mainStepsTaken.text = `${today.local.steps} steps`;
-  mainCaloriesBurned.text = `${today.local.calories} calories`;
-  mainElevationClimbed.text = `${today.local.elevationGain} floors`;
-  mainActiveTime.text = `${today.local.activeMinutes} mins active`;
+  mainStepsTaken.text = `${util.checkIfDigit(today.local.steps)} steps`;
+  mainCaloriesBurned.text = `${util.checkIfDigit(today.local.calories)} calories`;
+  mainElevationClimbed.text = `${util.checkIfDigit(today.local.elevationGain)} floors`;
+  mainActiveTime.text = `${util.checkIfDigit(today.local.activeMinutes)} mins active`;
+  //util.testLogging(today.local);
   doBatteryReading();
 };
 
@@ -51,25 +52,29 @@ let hrm = new HeartRateSensor();
 let hasHeartRateAreaBeenMoved = false;
 
 function doBatteryReading(){
-  let currentBatteryLevel = battery.calculateBatteryPercentage().level;
-  batteryDisplay.text = `${currentBatteryLevel}%`;
-  batteryDisplay.style.fill = `${battery.calculateBatteryPercentage().color}`;
-  batteryDisplay.style.display = `${battery.calculateBatteryPercentage().display}`;
+  let batteryStats = battery.calculateBatteryPercentage();
+  let currentBatteryLevel = batteryStats.level;
+  batteryDisplayText.text = `${currentBatteryLevel}%`;
+  batteryDisplayText.style.fill = `${batteryStats.color}`;
+  batteryDisplayText.style.display = `${batteryStats.textDisplay}`;
   batteryIcon.href = `${battery.determineBatteryIcon()}`;
+  batteryIcon.style.display = `${batteryStats.iconDisplay}`;
   
   //Set the top bar not to be overlapped by Fitbit's Default Bar
-  if(currentBatteryLevel > 17 && hasHeartRateAreaBeenMoved){
-    //heartRateGroup.groupTransform.translate.x = 0;
+  let batteryNotDisplayed = currentBatteryLevel > 17 && hasHeartRateAreaBeenMoved && !batteryStats.isDeviceCharging;
+  //Battery has to be less than 17% or charging
+  let batteryIsDisplayed = (currentBatteryLevel < 17 || batteryStats.isDeviceCharging) && !hasHeartRateAreaBeenMoved;
+  
+  if(batteryNotDisplayed){
     heartRateGroup.animate("disable");
     hasHeartRateAreaBeenMoved = false;
-  } else if(currentBatteryLevel < 17 && !hasHeartRateAreaBeenMoved) {
-    //heartRateGroup.groupTransform.translate.x = 47;
+  } else if(batteryIsDisplayed) {
     heartRateGroup.animate("enable");
     hasHeartRateAreaBeenMoved = true;
   }
 };
 
-// Regonize if user has the Device equipped
+// Recgonize if user has the Device equipped
 let body = new BodyPresenceSensor();
 body.onreading = () => {
   if (!body.present) {
@@ -77,6 +82,7 @@ body.onreading = () => {
     hrm.stop();
   } else {
     hrm.start();
+    mainHeartRate.text = `${hrm.heartRate} bpm`;
   }
 };
 body.start();
