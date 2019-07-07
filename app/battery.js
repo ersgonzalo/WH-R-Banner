@@ -6,8 +6,8 @@ const appSettings = appConstants.globalAppSettings;
 const batteryLowPercent = 20;
 
 export function calculateBatteryPercentage(){
-  //Disconnected is not charging
-  //Connected and Charging are true
+  // Disconnected is not charging
+  // Connected and Charging are true
   let isDeviceCharging = charger.connected;
   let batteryValues = {
     level: battery.chargeLevel,

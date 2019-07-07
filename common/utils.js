@@ -8,7 +8,7 @@ export function zeroPad(i) {
   return i;
 }
 
-//Set the full Month 
+// Set the full Month Name
 export function convertMonthFromNumber(numberedMonth) {
   var months = [
     'January',
@@ -44,7 +44,7 @@ export function convertDayOfWeekFromNumber(numberedDay) {
 }
 
 export function formatHoursDisplay(hours){
-  //Put this in utils for Time Display
+  // Put this in utils for Time Display
   if (preferences.clockDisplay === "12h") {
     // 12h format
     return hours % 12 || 12;

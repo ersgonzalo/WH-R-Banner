@@ -36,7 +36,7 @@ clock.ontick = (evt) => {
   hours = util.formatHoursDisplay(hours);
   let mins = util.zeroPad(todayTime.getMinutes());
   
-  //Format the Display in our Text Areas
+  // Format the Display in our Text Areas
   mainClockTime.text = `${hours}:${mins}`;
   mainDateTimeDay.text = `${dayOfWeek}, ${monthName} ${todayDate}`;
   mainStepsTaken.text = `${util.checkIfDigit(today.local.steps)} steps`;
@@ -60,9 +60,9 @@ function doBatteryReading(){
   batteryIcon.href = `${battery.determineBatteryIcon()}`;
   batteryIcon.style.display = `${batteryStats.iconDisplay}`;
   
-  //Set the top bar not to be overlapped by Fitbit's Default Bar
+  // Set the top bar not to be overlapped by Fitbit's Default Bar
   let batteryNotDisplayed = currentBatteryLevel > 17 && hasHeartRateAreaBeenMoved && !batteryStats.isDeviceCharging;
-  //Battery has to be less than 17% or charging
+  // Battery has to be less than 17% or charging
   let batteryIsDisplayed = (currentBatteryLevel < 17 || batteryStats.isDeviceCharging) && !hasHeartRateAreaBeenMoved;
   
   if(batteryNotDisplayed){
@@ -82,14 +82,16 @@ body.onreading = () => {
     hrm.stop();
   } else {
     hrm.start();
-    mainHeartRate.text = `${hrm.heartRate} bpm`;
+    let currentHeartRate = util.checkIfDigit(hrm.heartRate);
+    mainHeartRate.text = `${currentHeartRate} bpm`;
   }
 };
 body.start();
 
-//Still not sure what to do with this HR Section
+// Still not sure what to do with this HR Section
 hrm.onreading = function () {
-  mainHeartRate.text = `${hrm.heartRate} bpm`;
+  let currentHeartRate = util.checkIfDigit(hrm.heartRate);
+  mainHeartRate.text = `${currentHeartRate} bpm`;
 };
 hrm.onerror = function () {
   mainHeartRate.text = `-- bpm`;
