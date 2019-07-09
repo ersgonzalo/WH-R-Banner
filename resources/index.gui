@@ -36,11 +36,14 @@
   <text id="mainActiveTime" class="smallerStats" x="101" y="58%"/>
   <image href="icons/active.png" class="smallerIconStats" x="277" y="52%"/>
   
-  <text id="batteryDisplayText" x="14" y="57%" class="mainText"/>
-  <image id="batteryIcon" x="9" y="50%" class="smallerIconStats"/>
+  <g id="batteryGroup" pointer-events="visible">
+    <text id="batteryDisplayText" x="14" y="57%" class="mainText"/>
+    <image id="batteryIcon" x="9" y="50%" class="smallerIconStats"/>
+  </g>
   
   <rect id="dateDivider" class="whiteBar"/>
   
   <text id="mainDateTimeDay" class="mainText" />
   <text id="mainClockTime" class="mainText" />
+  <text id="mainClockSeconds" class="mainText" />
 </svg>

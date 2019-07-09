@@ -5,9 +5,19 @@
 #mainClockTime {
   font-size: 110;
   font-family: Colfax-Light;
+  letter-spacing: -7;
   text-length: 10;
   text-anchor: middle;
-  x: 50%;
+  x: 47%;
+  y: 99%;
+}
+
+#mainClockSeconds{
+  font-size: 24;
+  font-family: Colfax-Light;
+  text-length: 3;
+  text-anchor: middle;
+  x: 95%;
   y: 99%;
 }
 
@@ -17,7 +27,7 @@
   text-length: 30;
   text-anchor: middle;
   x: 50%;
-  y: 73%;
+  y: 72%;
 }
 
 .mainText{
@@ -28,7 +38,7 @@
   height: 2;
   width: 85%;
   x:25;
-  y:63%;
+  y:62%;
 }
 
 /* General Formatting for Top Sections */

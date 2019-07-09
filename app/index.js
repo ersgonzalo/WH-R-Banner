@@ -6,12 +6,14 @@ import { BodyPresenceSensor } from "body-presence";
 import { display } from "display";
 import * as battery from "./battery";
 import * as util from "../common/utils";
+import * as appConstants from "../common/constants";
 
 // Update the Clockface every Second
 clock.granularity = "seconds";
 
 // Get a handle on the Document elements (Text, Image, etc)
 const mainClockTime = document.getElementById("mainClockTime");
+const mainClockSeconds = document.getElementById("mainClockSeconds");
 const mainDateTimeDay = document.getElementById("mainDateTimeDay");
 const mainHeartRate = document.getElementById("mainHeartRate");
 const heartRateGroup = document.getElementById("heartRateGroup");
@@ -21,6 +23,7 @@ const mainElevationClimbed = document.getElementById("mainElevationClimbed");
 const mainActiveTime = document.getElementById("mainActiveTime");
 const batteryDisplayText = document.getElementById("batteryDisplayText");
 const batteryIcon = document.getElementById("batteryIcon");
+const batteryGroup = document.getElementById("batteryGroup");
 
 // Set the z-Index for the Battery section
 batteryDisplayText.layer = 2;
@@ -35,9 +38,11 @@ clock.ontick = (evt) => {
   let todayDate = todayTime.getDate();
   hours = util.formatHoursDisplay(hours);
   let mins = util.zeroPad(todayTime.getMinutes());
+  let seconds = util.zeroPad(todayTime.getSeconds());
   
   // Format the Display in our Text Areas
   mainClockTime.text = `${hours}:${mins}`;
+  mainClockSeconds.text = `${seconds}`;
   mainDateTimeDay.text = `${dayOfWeek}, ${monthName} ${todayDate}`;
   mainStepsTaken.text = `${util.checkIfDigit(today.local.steps)} steps`;
   mainCaloriesBurned.text = `${util.checkIfDigit(today.local.calories)} calories`;
@@ -50,10 +55,16 @@ clock.ontick = (evt) => {
 // For the Heartrate Monitor
 let hrm = new HeartRateSensor();
 let hasHeartRateAreaBeenMoved = false;
+let wasBatteryLevelTriggered;
+let currentBatteryLevel;
+resetBatteryIcon();
 
 function doBatteryReading(){
   let batteryStats = battery.calculateBatteryPercentage();
-  let currentBatteryLevel = batteryStats.level;
+  let isDeviceCharging = batteryStats.isDeviceCharging;
+  
+  if (wasBatteryLevelTriggered) return;
+  currentBatteryLevel = batteryStats.level;
   batteryDisplayText.text = `${currentBatteryLevel}%`;
   batteryDisplayText.style.fill = `${batteryStats.color}`;
   batteryDisplayText.style.display = `${batteryStats.textDisplay}`;
@@ -61,9 +72,9 @@ function doBatteryReading(){
   batteryIcon.style.display = `${batteryStats.iconDisplay}`;
   
   // Set the top bar not to be overlapped by Fitbit's Default Bar
-  let batteryNotDisplayed = currentBatteryLevel > 17 && hasHeartRateAreaBeenMoved && !batteryStats.isDeviceCharging;
+  let batteryNotDisplayed = currentBatteryLevel >= 17 && hasHeartRateAreaBeenMoved && !isDeviceCharging;
   // Battery has to be less than 17% or charging
-  let batteryIsDisplayed = (currentBatteryLevel < 17 || batteryStats.isDeviceCharging) && !hasHeartRateAreaBeenMoved;
+  let batteryIsDisplayed = (currentBatteryLevel < 17 || isDeviceCharging) && !hasHeartRateAreaBeenMoved;
   
   if(batteryNotDisplayed){
     heartRateGroup.animate("disable");
@@ -72,6 +83,28 @@ function doBatteryReading(){
     heartRateGroup.animate("enable");
     hasHeartRateAreaBeenMoved = true;
   }
+};
+
+// Better not to waste clicks?
+batteryGroup.onclick = () => {
+  let batteryStats = battery.giveBatteryReading();
+  if (batteryStats.level <= appConstants.batteryLowPercent) return;
+  wasBatteryLevelTriggered = true;
+  batteryDisplayText.text = `${batteryStats.level}%`;
+  batteryDisplayText.style.fill = `${batteryStats.color}`;
+  batteryDisplayText.style.display = `${batteryStats.textDisplay}`;
+  batteryIcon.href = `${batteryStats.iconToUse}`;
+  batteryIcon.style.display = `${batteryStats.iconDisplay}`;
+
+  setTimeout(function(){
+    doBatteryReading();
+    resetBatteryIcon();
+  }, batteryStats.batteryTimeout);
+};
+
+function resetBatteryIcon(){
+  wasBatteryLevelTriggered = false;
+  currentBatteryLevel = 0;
 };
 
 // Recgonize if user has the Device equipped
@@ -89,7 +122,7 @@ body.onreading = () => {
 body.start();
 
 // Still not sure what to do with this HR Section
-hrm.onreading = function () {
+hrm.onreading = () => {
   let currentHeartRate = util.checkIfDigit(hrm.heartRate);
   mainHeartRate.text = `${currentHeartRate} bpm`;
 };

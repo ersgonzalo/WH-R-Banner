@@ -8,6 +8,11 @@ Still learning how to do these things, and need to get way better at HTML+CSS de
 If you'd like to install the watchface for yourself, you can use the [gallery link here](https://gam.fitbit.com/gallery/clock/54750558-52f6-49c5-9d0d-8f1ffa509a6d)!
 
 ### Version Changelog  
+#### 1.8.0 - 7/9/19  
+- Add seconds to the bottom right for timing
+- Add a Battery Percentage display when clicking on battery icon
+- Insanity late night refactoring...
+
 #### 1.7.1 - 7/6/19  
 - Forgot to use colons on an object in battery.js file...
 
@@ -37,13 +42,15 @@ If you'd like to install the watchface for yourself, you can use the [gallery li
 ### ToDos For Later:
 - Add in animation when clicking watch face (maybe to display user goals and get overall battery %?)
 - Add in Goal % compared to specific white bar lengths
-- Make refresh less taxing on application
-- More code modularity for various sections
-- Display better on Ionic Devices
+- Make refresh less taxing on application/rendering
 - ~Handle any undefined errors if networking stuff goes down like on 7/2/19~
 - ~Hide Battery display if device is charging state and do not trigger animation~
 - ~~Add in animation when top bpm bar moves~~
 - ~~Make the text larger more areas proportionately~~
+
+### Stretch Goals:
+- Display better on Ionic Devices
+- More code modularity for various sections
 
 ### Credits:
 - Fitbit Team's Design Assets - https://github.com/Fitbit/sdk-design-assets

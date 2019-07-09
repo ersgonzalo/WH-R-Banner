@@ -3,7 +3,7 @@ import { charger } from "power";
 import * as appConstants from "../common/constants";
 
 const appSettings = appConstants.globalAppSettings;
-const batteryLowPercent = 20;
+const batteryLowPercent = appConstants.batteryLowPercent;
 
 export function calculateBatteryPercentage(){
   // Disconnected is not charging
@@ -63,3 +63,14 @@ export function determineBatteryIcon(){
   
   return imageFolderPath + batteryIconType + imageFileType;
 }
+
+export function giveBatteryReading(){
+  return {
+    level: battery.chargeLevel,
+    color: appSettings.mainTextColor,
+    textDisplay: "inline",
+    iconDisplay: "inline",
+    iconToUse: "icons/battery-0.png",
+    batteryTimeout: appConstants.batteryTimeout,
+  };
+};
