@@ -7,6 +7,7 @@ import { display } from "display";
 import * as battery from "./battery";
 import * as util from "../common/utils";
 import * as appConstants from "../common/constants";
+import * as testing from "../common/tests";
 
 // Update the Clockface every Second
 clock.granularity = "seconds";
@@ -29,6 +30,11 @@ const batteryGroup = document.getElementById("batteryGroup");
 batteryDisplayText.layer = 2;
 batteryIcon.layer = 1;
 
+// //Uncomment below to test Date Formatting Variations
+// var testDay = 0;
+// var testDate = 1;
+// var testMonth = 0;
+
 // Update the Clockface Elements every tick based on the current time
 clock.ontick = (evt) => {
   let todayTime = evt.date;
@@ -36,18 +42,28 @@ clock.ontick = (evt) => {
   let dayOfWeek = util.convertDayOfWeekFromNumber(todayTime.getDay());
   let monthName = util.convertMonthFromNumber(todayTime.getMonth());
   let todayDate = todayTime.getDate();
+  // //Uncomment below to test Date Formatting Variations
+  // let dayOfWeek = testDay = testing.testDaysOfWeek(testDay);
+  // dayOfWeek = util.convertDayOfWeekFromNumber(dayOfWeek);
+  // let monthName = testMonth = testing.testMonths(testMonth);
+  // monthName = util.convertMonthFromNumber(monthName);
+  // let todayDate = testDate = testing.testDates(testDate);
   hours = util.formatHoursDisplay(hours);
   let mins = util.zeroPad(todayTime.getMinutes());
   let seconds = util.zeroPad(todayTime.getSeconds());
+  let totalFormattedDate = `${dayOfWeek}, ${monthName} ${todayDate}`;
+  if(totalFormattedDate.length > 18){
+    totalFormattedDate = `${dayOfWeek}, ${util.shortenProperDateWord(monthName)}. ${todayDate}`;
+  }
   
   // Format the Display in our Text Areas
   mainClockTime.text = `${hours}:${mins}`;
   mainClockSeconds.text = `${seconds}`;
-  mainDateTimeDay.text = `${dayOfWeek}, ${monthName} ${todayDate}`;
+  mainDateTimeDay.text = `${totalFormattedDate}`;
   mainStepsTaken.text = `${util.checkIfDigit(today.local.steps)} steps`;
   mainCaloriesBurned.text = `${util.checkIfDigit(today.local.calories)} calories`;
   mainElevationClimbed.text = `${util.checkIfDigit(today.local.elevationGain)} floors`;
-  mainActiveTime.text = `${util.checkIfDigit(today.local.activeMinutes)} mins active`;
+  mainActiveTime.text = `${util.checkIfDigit(today.local.activeMinutes)} minutes`;
   //util.testLogging(today.local);
   doBatteryReading();
 };

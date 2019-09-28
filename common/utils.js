@@ -22,7 +22,7 @@ export function convertMonthFromNumber(numberedMonth) {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ];
 
   return months[numberedMonth];
@@ -59,6 +59,26 @@ export function checkIfDigit(expectedNumber){
     return `--`;
   else
     return expectedNumber;
+}
+
+//Take Month or Day of the Week and make them 3 Characters Long
+//Because Saturday, September 28 is too long for Versa text right now
+export function shortenProperDateWord(dateWord){
+  var formattedDateWord = dateWord;
+  switch(formattedDateWord){
+    case 'September':
+    case 'November':
+    case 'December':
+      formattedDateWord = dateWord.replace(/ember/g,'');
+      break;
+    case 'October':
+      formattedDateWord = dateWord.slice(0,4);
+      break;
+    default:
+      formattedDateWord = dateWord.slice(0,3);
+      break;
+    }
+  return formattedDateWord;
 }
 
 export function testLogging(totalItemsObject){

@@ -8,6 +8,11 @@ Still learning how to do these things, and need to get way better at HTML+CSS de
 If you'd like to install the watchface for yourself, you can use the [gallery link here](https://gam.fitbit.com/gallery/clock/54750558-52f6-49c5-9d0d-8f1ffa509a6d)!
 
 ### Version Changelog  
+#### 1.9.0 - 9/29/19  
+- Date formatting for long `Day Of Week, Month Date` combinations so text is no longer cut off from view
+- Change from `mins active` to `minutes` in box since the icon is fairly informative enough
+- Add in some testing functions so my life is easier for potenital formatting
+
 #### 1.8.0 - 7/9/19  
 - Add seconds to the bottom right for timing
 - Add a Battery Percentage display when clicking on battery icon
